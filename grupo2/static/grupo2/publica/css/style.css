@@ -1,0 +1,10 @@
+footer{
+    background-color: #333;
+}
+footer a{
+    color: #FFF;
+}
+img.logo-ciudad {
+    max-width: none !important;
+    width: 230px;
+}
