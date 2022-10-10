@@ -26,13 +26,17 @@
                 <img src="{% static '/img/logocodoacodo.png'%}" alt="">
             </a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav ms-auto">
-                <a class="nav-item nav-link" href="{% url 'inicio' %}">Home <span class="sr-only">(current)</span></a>
+              <div class="navbar-nav mx-auto">
+                <a class="nav-item nav-link" href="{% url 'inicio' %}">Home</a>
                 <a class="nav-item nav-link" href="{% url 'deportes' %}">Deportes</a>
                 <a class="nav-item nav-link" href="{% url 'eventos' %}">Eventos</a>
                 <a class="nav-item nav-link" href="{% url 'quienes_somos' %}">Quienes somos</a> 
               </div>
-            </div>
+            </div> 
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-light btn btn-dark" type="submit">Buscar</button>
+            </form>
         </nav>
     </header>
     <main class="flex-shrink-0">
