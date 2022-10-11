@@ -22,9 +22,10 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4291D6;">
-            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <img src="{% static '/img/logocodoacodo.png'%}" alt="">
-            </a>
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav mx-auto">
                 <a class="nav-item nav-link" href="{% url 'inicio' %}">Home</a>
@@ -32,11 +33,11 @@
                 <a class="nav-item nav-link" href="{% url 'eventos' %}">Eventos</a>
                 <a class="nav-item nav-link" href="{% url 'quienes_somos' %}">Quienes somos</a> 
               </div>
-            </div> 
-            <form class="d-flex" role="search">
+              <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
                 <button class="btn btn-outline-light btn btn-dark" type="submit">Buscar</button>
             </form>
+            </div>
         </nav>
     </header>
     <main class="flex-shrink-0">
