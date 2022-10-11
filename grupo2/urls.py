@@ -3,8 +3,10 @@ from . import views
 
 urlpatterns = [
     path('',views.index,name="inicio"),
-    path('quienessomos/',views.quienes_somos,name='quienes_somos'),
-    path('eventos/',views.ver_eventos,name='eventos'),
-    path('deportes/',views.ver_deportes,name='deportes'),
+    path('nuestroclub/',views.nuestro_club,name='nuestro_club'),
+    path('actividades/',views.ver_actividades,name='actividades'),
+    path('horarios/',views.ver_horarios,name='horarios'),
+    path('socios/',views.ver_socios,name='socios'),
+    path('contacto/',views.ver_contacto,name='contacto'),
     path('administracion',views.index_administracion,name='inicio_administracion'),
 ]
