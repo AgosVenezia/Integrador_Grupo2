@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'proyecto_integrador.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': BASE_DIR / 'SOCIOS',
+        'USER':'postgres',
+        'PASSWORD': 'samsung3ne',
+        'HOST':'127.0.0.1',
+        'PORT': '5432',
     }
 }
 

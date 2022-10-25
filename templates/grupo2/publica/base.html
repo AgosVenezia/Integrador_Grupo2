@@ -21,26 +21,26 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4291D6;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004aad;">
       <div class="container">  
         <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-          <img src="{% static '/img/logocodoacodo.png'%}" alt="">
+          <img class="logo" src="{% static '/img/LogoCED2.png'%}" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav mx-auto">
-            <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
-            <a class="nav-item nav-link" href="{% url 'nuestro_club' %}">Nuestro Club</a> 
-            <a class="nav-item nav-link" href="{% url 'actividades' %}">Actividades</a>
-            <a class="nav-item nav-link" href="{% url 'horarios' %}">Horarios</a>
-            <a class="nav-item nav-link" href="{% url 'socios' %}">Socios</a>
-            <a class="nav-item nav-link" href="{% url 'contacto' %}">Contacto</a>
+            <a class="nav-item nav-link" style="color:#FF1616;" href="{% url 'inicio' %}">Inicio</a>
+            <a class="nav-item nav-link" style="color:#ffffff;" href="{% url 'nuestro_club' %}">Nuestro Club</a> 
+            <a class="nav-item nav-link" style="color:#ffffff;" href="{% url 'actividades' %}">Actividades</a>
+            <a class="nav-item nav-link" style="color:#ffffff;" href="{% url 'horarios' %}">Horarios</a>
+            <a class="nav-item nav-link" style="color:#ffffff;" href="{% url 'socios' %}">Socios</a>
+            <a class="nav-item nav-link" style="color:#ffffff;" href="{% url 'contacto' %}">Contacto</a>
           </div>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-light btn btn-dark" style="background-color: #AB0314;" type="submit">Buscar</button>
+            <button class="btn btn-outline btn btn-dark" style="background-color: #FF1616;" style="color:#ffffff;" type="submit">Buscar</button>
           </form>
         </div>
       </div>

@@ -1,10 +1,22 @@
-.banner{
-    background-image: url('https://png.pngtree.com/background/20210710/original/pngtree-color-tennis-sport-advertising-background-picture-image_970644.jpg');
+.portada{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
+    height: 100%;
+    width: 100% ;
+    text-align: center;
 }
 
-.h1-banner, .text-banner{
-    color:blue;
+.card{
+    height: 100%;
+    width: 100% ;
+}
+
+.logo{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%; 
 }
 
 .banner-proyectos{

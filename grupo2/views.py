@@ -28,7 +28,7 @@ def index(request):
 
     return render(request,'grupo2/publica/index.html',{'cursos':listado_cursos,})
 
-def nuestro_club(request):
+def nuestro_club1(request):
     #return redirect('saludar_por_defecto')
     #return redirect(reverse('saludar', kwargs={'nombre':'Juliana'}))
     template = loader.get_template('grupo2/publica/nuestro_club.html')
