@@ -75,12 +75,13 @@ WSGI_APPLICATION = 'proyecto_integrador.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# setear la base de datos de segon archivo oct 25
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': BASE_DIR / 'SOCIOS',
+        'NAME': 'SOCIOS',
         'USER':'postgres',
-        'PASSWORD': 'samsung3ne',
+        'PASSWORD': '',
         'HOST':'127.0.0.1',
         'PORT': '5432',
     }
