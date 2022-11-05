@@ -23,7 +23,7 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004aad;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#004AAD;">
       <div class="container">  
         <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
           <img class="logo" src="{% static '/img/LogoCED2.png'%}" alt="">
@@ -33,21 +33,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav mx-auto">
-            <a class="nav-item nav-link" style="color:#FF1616;" href="{% url 'inicio' %}">Inicio</a>
-            <a class="nav-item nav-link" style="color:#ffffff;" href="{% url 'nuestro_club' %}">Nuestro Club</a> 
-            <a class="nav-item nav-link" style="color:#ffffff;" href="{% url 'actividades' %}">Actividades</a>
-            <a class="nav-item nav-link" style="color:#ffffff;" href="{% url 'horarios' %}">Horarios</a>
-            <a class="nav-item nav-link" style="color:#ffffff;" href="{% url 'socios' %}">Socios</a>
-            <a class="nav-item nav-link" style="color:#ffffff;" href="{% url 'contacto' %}">Contacto</a>
+            <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'inicio' %}">Inicio</a>
+            <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'nuestro_club' %}">Nuestro Club</a> 
+            <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'actividades' %}">Actividades</a>
+            <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'horarios' %}">Horarios</a>
+            <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'socios' %}">Socios</a>
+            <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'contacto' %}">Contacto</a>
           </div>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline btn btn-dark" style="background-color: #FF1616;" style="color:#ffffff;" type="submit">Buscar</button>
+            <button class="btn btn-outline btn btn-dark" style="background-color:#FF1616;" style="color:#FFFFFF;" type="submit">Buscar</button>
           </form>
         </div>
       </div>
     </nav>
   </header>
+  <div class="margen"></div>
   <main class="flex-shrink-0">
     {% block contenido %}
         

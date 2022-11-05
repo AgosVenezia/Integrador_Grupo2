@@ -1,4 +1,21 @@
-.portada{
+header{
+    top: 0;    
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+#navbarNavAltMarkup a:hover{
+    background-color: #FF1616;
+	color: #FFFFFF;
+    cursor: pointer;
+}
+
+.margen{
+    padding-top: 70px;    
+}
+
+.portada{ 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -14,9 +31,26 @@
 }
 
 .logo{
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%; 
+}
+
+#imagen{
+    height: 200px;
+    width: 200px;
+}
+
+#boton{
+    background-color: #FF1616;
+    color: #ffffff;
+}
+
+#carousel{
+    height: 90%;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
 }
 
 .banner-proyectos{

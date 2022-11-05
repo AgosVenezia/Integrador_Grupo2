@@ -9,13 +9,16 @@ from django.template import loader
 
 from grupo2.form import *
 
+from django.contrib import messages # para responder los mensajes en pantalla
+
+
 def index(request):
     listado_entrenamientos=[]
     # si ingresa de post - 
     if(request.method == 'POST'):
         contacto_form = ContactoForm(request.POST) # se carga con los valores enviados
         # validar y guardar el comentario
-
+        
     else:
         contacto_form = ContactoForm()  # se envia vacio va por GET
 
@@ -44,8 +47,12 @@ def ver_contacto(request):
 
         # validar y guardar el comentario
         if(contacto_form.is_valid()):
-            pass
-        
+            # operacion con los datos ya validados
+            # cargar en la sql
+            messages.success(request,"Muchas gracias por comunicarte, en breve te estaremos contactando")
+            contacto_form = ContactoForm()
+        else:
+            messages.warning(request,"Por favor, revisa los errores y vuelve a enviar")
     else:
         contacto_form = ContactoForm()  # se envia vacio va por GET
 
@@ -57,25 +64,25 @@ def ver_contacto(request):
 def ver_actividades(request):
     listado_actividades = [
         {
-            'nombre':'Futbol',
+            'nombre':'Fútbol',
             'descripcion':'Cebollitas',
             'categoria':'Deporte de equipo',
             'imagen':'/static/img/deporte_futbol_ninos.jpg'
         },
         {
             'nombre':'Atletismo',
-            'descripcion':'Alta Competencia',
+            'descripcion':'Alta competencia',
             'categoria':'Individual',
             'imagen':'/static/img/Atletismo.jpg'
         },
         {
             'nombre':'Basquet',
-            'descripcion':'Adolecentes',
+            'descripcion':'Adolescentes',
             'categoria':'Competencia',
             'imagen':'/static/img/deporte_basket.jpg'
         },
         {
-            'nombre':'Musculacion',
+            'nombre':'Musculación',
             'descripcion':'Personalizado',
             'categoria':'Competencia',
             'imagen':"/static/img/deporte_musculacion.jpg"

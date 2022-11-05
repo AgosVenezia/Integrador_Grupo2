@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'grupo2',
+    'django_extensions'
 
 ]
 
@@ -79,9 +80,9 @@ WSGI_APPLICATION = 'proyecto_integrador.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'SOCIOS',
+        'NAME': 'club1',
         'USER':'postgres',
-        'PASSWORD': '',
+        'PASSWORD': '123',
         'HOST':'127.0.0.1',
         'PORT': '5432',
     }

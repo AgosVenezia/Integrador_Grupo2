@@ -3,13 +3,14 @@
 {% block titulo %}Actividades{% endblock titulo %}
 
 {% block contenido %}
+
 <section class="py-5 text-center banner">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-bold h1-banner">CLUB CED <br> &#60; Codificando el Deporte /&#62;</h1>
-            <p class="lead text-banner">Tu entrenamiento hoy, TUS LOGROS MAÑANA</p>
-            
-            
+            <img id="imagen" src="/static/img/logoCED2.png" alt="">
+            <p></p>
+            <p class="lead text-banner">¡Tu entrenamiento hoy, TUS LOGROS MAÑANA!</p> 
         </div>
     </div>
 </section>
@@ -17,9 +18,9 @@
 <section class="album py-5 bg-light">
     <div class="container">
     <!--Section heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Grupos de Entrenamientos</h2>
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Grupos de entrenamientos</h2>
     <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5">Preparamos a los deportistas en el mas alto rendimiento.</p>
+    <p class="text-center w-responsive mx-auto mb-5">Preparamos a los deportistas en el más alto rendimiento.</p>
             {% if cursos|length > 0 %}
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
                     {% for curso in cursos %}
@@ -32,7 +33,7 @@
                                     <p class="card-text">{{curso.descripcion}}</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+                                            <button id="boton" type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
                                         </div>
                                         <small class="text-muted">{{curso.categoria}}</small>
                                     </div>
