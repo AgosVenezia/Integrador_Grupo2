@@ -11,6 +11,16 @@ class Socio(models.Model):
     dni = models.IntegerField(verbose_name='DNI')
     tipo_dni = models.CharField(max_length=10, default='dni')
 
+class Persona(models.Model):
+    nombre = models.CharField(max_length=100,verbose_name='Nombre')
+
+    # esto me dice que en la clase que esta inmersa se comvierte en ABSTRACTA
+    class Meta:
+        abstract=True
+
+class Vitalicio(Socio):
+    fecha= models.DateField(("00/00/000"), auto_now=False, auto_now_add=False)
+
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100,verbose_name='Nombre')
@@ -42,3 +52,22 @@ class Inscripcion(models.Model):
 
     def __str__(self):
         return self.id
+
+
+# Herencia Multiple
+#HERENCIA MULTIPLE
+class PersonaM(models.Model):
+    nombre_m = models.CharField(max_length=100,verbose_name='Nombre')
+    apellido_m = models.CharField(max_length=150,verbose_name='Apellido')
+    email_m = models.EmailField(max_length=150,null=True)
+    dni_m = models.IntegerField(verbose_name="DNI")
+    
+    class Meta:
+        abstract=True
+
+class EstudianteM(PersonaM):
+    matricula_m = models.CharField(max_length=10,verbose_name='Matricula')
+
+class DocenteM(PersonaM):
+    legajo_m = models.CharField(max_length=10,verbose_name='Legajo')
+    

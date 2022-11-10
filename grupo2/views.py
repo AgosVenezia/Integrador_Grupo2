@@ -7,9 +7,13 @@ from django.urls import reverse
 
 from django.template import loader
 
-from grupo2.form import *
+from grupo2.forms import *
 
 from django.contrib import messages # para responder los mensajes en pantalla
+
+#--modificado 08/11
+from grupo2.models import *
+from grupo2.forms import ContactoForm, CategoriaForm
 
 
 def index(request):
@@ -73,10 +77,10 @@ def ver_actividades(request):
             'nombre':'Atletismo',
             'descripcion':'Alta competencia',
             'categoria':'Individual',
-            'imagen':'/static/img/Atletismo.jpg'
+            'imagen':'/static/img/atletismo.jpg'
         },
         {
-            'nombre':'Basquet',
+            'nombre':'Básquet',
             'descripcion':'Adolescentes',
             'categoria':'Competencia',
             'imagen':'/static/img/deporte_basket.jpg'
@@ -92,3 +96,14 @@ def ver_actividades(request):
 def index_administracion(request):
     variable = 'test variable'
     return render(request, 'grupo2/administracion/index_administracion.html',{'variable':variable})
+
+
+
+# ----- clase 08/11
+
+# desde models
+def categorias_index(request):
+    # queryset
+    categorias = Categoria.objects.all()
+    return render(request,'grupo2/administracion/categorias/index.html',{'categorias':categorias})
+

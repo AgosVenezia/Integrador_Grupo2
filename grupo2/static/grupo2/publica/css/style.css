@@ -25,6 +25,12 @@ header{
     text-align: center;
 }
 
+h1{
+    font-family: Bebas Neue;
+    text-align: center;
+    color: #6C757D;
+}
+
 .card{
     height: 100%;
     width: 100% ;
@@ -33,6 +39,12 @@ header{
 .logo{
     height: 60px;
     width: 60px;
+    border-radius: 50%; 
+}
+
+.logo2{
+    height: 110px;
+    width: 110px;
     border-radius: 50%; 
 }
 
@@ -58,15 +70,17 @@ header{
     background-size: cover;
 }
 
-footer{
-    background-color: #333;
+#copy{
+    color: #FFFFFF;
 }
-footer a{
-    color: #FFF;
+
+#links{
+    color: #004AAD;
+    text-decoration: none;
 }
-img.logo-ciudad {
-    max-width: none !important;
-    width: 230px;
+
+#links:hover{
+    color: #FF1616;
 }
 
 p.legales {

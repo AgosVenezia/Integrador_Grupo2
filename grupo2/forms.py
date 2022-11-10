@@ -28,7 +28,7 @@ class ContactoForm(forms.Form):
     mensaje = forms.CharField(label='Mensaje',max_length=500,
                             widget=forms.Textarea(attrs={'class':'form-control','rows':5}))
 
-    suscripcion= forms.BooleanField(label=' Suscribirse a las Novedades ', required=False,
+    suscripcion= forms.BooleanField(label=' Suscribirse a las novedades ', required=False,
                             widget=forms.CheckboxInput(attrs={'class':'form-check-input','value':1}))
 
     
@@ -49,3 +49,13 @@ class ContactoForm(forms.Form):
         #    msg= "Debe agregar la palabra -ayuda- en el campo."
         #    self.add_error('asunto',msg)
         #    self.add_error('mensaje',msg)
+
+#-- modificado 08/11
+class CategoriaForm(forms.Form):
+
+    nombre = forms.CharField(
+            label='Nombre', 
+            max_length=50,
+            validators=(solo_caracteres,),
+            widget=forms.TextInput(attrs={'class':'form-control'})
+        )   
