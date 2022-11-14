@@ -5,11 +5,28 @@ from django.db import models
 
 
 class Socio(models.Model):
+    fechaAsociacion= models.DateField()
+    categoriaSocio= models.IntegerField(max_length=1)
+    distintiva=models.CharField(max_length=6)
+    categoriaDistintiva=models.IntegerField(max_length=1)
+    expediente = models.FileField(upload_to='expedientes/')
     nombre = models.CharField(max_length=100,verbose_name='Nombre')
     apellido = models.CharField(max_length=100,verbose_name='Apellido')
-    email = models.EmailField(max_length=150)
-    dni = models.IntegerField(verbose_name='DNI')
+    estadoCivil=models.IntegerField(max_length=1)
+    sexo=models.CharField(max_length=1)
     tipo_dni = models.CharField(max_length=10, default='dni')
+    dni = models.IntegerField(verbose_name='DNI')
+    cuil=models.IntegerField(max_length=11)
+    fechaNacimiento=models.DateField()
+    direccion=models.CharField(max_length=100,verbose_name='direccion')
+    ciudad=models.IntegerField(max_length=3)
+    email = models.EmailField(max_length=150)
+    
+    
+    
+    fechaVencimiento=models.DateField()
+
+
 
 class Persona(models.Model):
     nombre = models.CharField(max_length=100,verbose_name='Nombre')
