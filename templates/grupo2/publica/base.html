@@ -39,11 +39,28 @@
             <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'horarios' %}">Horarios</a>
             <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'socios' %}">Socios</a>
             <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'contacto' %}">Contacto</a>
+            <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'inicio_administracion' %}">Administracion</a>
           </div>
+          {% comment %}
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
             <button class="btn btn-outline btn btn-dark" style="background-color:#FF1616;" style="color:#FFFFFF;" type="submit">Buscar</button>
           </form>
+          {% endcomment %}
+
+          <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+                
+            <div class="col-md-3 text-end">
+                {% if user.is_authenticated %}
+                    {% comment %} <p>Bienvenido\a, {{ user.username }}.</p> {% endcomment %}
+                    <p type="text" style="display: inline" class="">Bienvenido\a, {{ user.username }}.</p>
+                    <a type="button" href="" class="btn btn-outline-primary me-2">Cerrar Sesión</a>
+                {% else %}
+                    <a type="button" href="{% url 'login' %}" class="btn btn-outline-primary me-1">Iniciar Sesión</a>
+                    <a type="button" href="" class="btn btn-dark">Registrarse</a>
+                {% endif %}                
+            </div>
+
         </div>
       </div>
     </nav>

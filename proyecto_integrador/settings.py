@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,12 +26,13 @@ SECRET_KEY = 'django-insecure-lmp6l=2!-m@_ik09346e&l+g^9^n4c&mnx7zi03k2)3yerti76
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["lu8dcf.servehttp.com","localhost","192.168.2.109","127.0.0.1"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    # son importante que esten presentes para que se pueda administrar
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'grupo2',
     'django_extensions'
+    #'mod_wsgi.server',
 
 ]
 
@@ -58,7 +61,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR/ 'templates' ],
-        'APP_DIRS': True,
+
+        'APP_DIRS': True,  # es para que busque todos los templates d e las aplicaciones instaladas
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -111,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-Ar'
 
 TIME_ZONE = 'UTC'
 
@@ -142,3 +146,17 @@ STATIC_ROOT = BASE_DIR / 'static_root'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# donde vamos a ir a guardar los archivos medias debug
+MEDIA_URL = "/media/"
+# media para produccion
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+# constante para poder almacenar los mensajes entre solicituddes en cookies
+# MESSAGE_STORAGE = 'django.contrib.menssages.storage.cookie.CookieStorage'
+
+LOGIN_URL = '/cuentas/login/'
+LOGIN_REDIRECT_URL = 'inicio'
+LOGOUT_REDIRECT_URL = 'inicio'

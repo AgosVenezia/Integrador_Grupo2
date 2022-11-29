@@ -11,6 +11,7 @@
     {% load static %}
     <link href="{% static '/grupo2/administracion/libs/css/styles.css'%}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/714631fdeb.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -37,25 +38,54 @@
         </ul>
     </nav>
     <div id="layoutSidenav">
+
         <div id="layoutSidenav_nav">
+
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Administracion</div>
-                        <a class="nav-link" href="">
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Socios
-                        </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                            Cursos
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
+
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{% url 'ciudad_index' %}">Ciudades</a>
+                                <a class="nav-link" href="{% url 'socio_index' %}">Socios</a>
+                            </nav>
+                        </div>  
+                    
+                    
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-person-running"></i></div>
+                            Entrenamientos
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{% url 'categoria_index' %}">Categorias</a>
+                                <a class="nav-link" href="{% url 'curso_index' %}">Cursos</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-money-check-dollar"></i></div>
                             Tesoreria
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
+
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{% url 'comprobante_index' %}">Facturacion</a>
+                                <a class="nav-link" href="{% url 'cuota_index' %}">Cuotas</a>
+                            </nav>
+                        </div>
+
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-laptop-code"></i></div>
                             Secretaria
@@ -63,11 +93,11 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="">Categorias</a>
-                                <a class="nav-link" href="">Cursos</a>
+                                <a class="nav-link" href="">Expedientes</a>
+                                <a class="nav-link" href="">Legales</a>
                             </nav>
                         </div>
-                       
+
                         <a class="nav-link" href="{% url 'inicio' %}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-reply"></i></div>
                             Ir sitio principal

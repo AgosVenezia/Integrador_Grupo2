@@ -1,9 +1,9 @@
 {% extends '../base_administracion.html' %}
 
-{% block titulo %}Categorias cursos{% endblock%}
+{% block titulo %}Categorias de Entrenamientos{% endblock%}
 
 {% block contenido %}
-<h1 class="mt-4">Categorias cursos</h1>
+<h1 class="mt-4">Categorias de Entrenamientos</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="{% url 'inicio_administracion' %}">Administracion</a></li>
     <li class="breadcrumb-item active">Categorias</li>
@@ -37,25 +37,35 @@
 <br>
 <div class="card">
     <div class="card-body">
-        <a name="" id="" class="btn btn-success" href="" role="button"> <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
+        <a name="" id="" class="btn btn-success" href="{% url 'categoria_nuevo' %}" role="button"> <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
         <!-- bs5-table-defaul -->
         <table class="table">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
-                    <th>Acciones</th>
+                    <th>Apellido</th>
+                    <th>Distintiva</th>
+                    <th>fechaNacimient</th>
+                    <th>telCelular</th>
+                </tr>
+                </tr>
                 </tr>
             </thead>
             <tbody>
                 {% for categoria in categorias %}
                     <tr>
-                        <td>{{categoria.id}}</td>
+                        <td>{{socio.id}}</td>
                         <td>{{categoria.nombre}}</td>
+                        <td>{{categoria.apellido}}</td>
+                        <td>{{categoria.fechaNacimient}}</td>
+                        <td>{{categoria.telCelular}}</td>
                         <td>
-                            {% comment %} <a href="{% url 'categorias_editar' categoria.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
-                            <a href="{% url 'categorias_eliminar' categoria.id %}" title="Eliminar" class="btn btn-danger"><i class="fas fa-trash"></i></a> {% endcomment %}
-
+                        <a href="{% url 'socio_editar' socio.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
+                        
+                        <a href="{% url 'socio_eliminar' socio.id %}" title="Eliminar" class="btn btn-danger"><i class="fas fa-trash"></i></a> 
+                        
+                        </div>        
                         </td>
                     </tr>
                 {% endfor %}

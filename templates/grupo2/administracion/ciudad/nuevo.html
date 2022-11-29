@@ -1,0 +1,22 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Nueva Ciudad{% endblock%}
+
+{% block contenido %}
+<h1 class="mt-4">Nueva Ciudad</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="{% url 'inicio_administracion' %}">Administracion</a></li>
+    <li class="breadcrumb-item active">Nueva Ciudad</li>
+</ol>
+
+
+<div class="card">
+    <div class="card-header">Creacion de nueva Ciudad</div>
+    <div class="card-body">
+        <form action="{% url 'ciudad_nuevo' %}" method="post">
+            {% csrf_token %}
+            {% include 'grupo2/administracion/ciudad/form.html' %}
+        </form>
+    </div>
+</div>
+{% endblock %}

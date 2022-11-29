@@ -17,7 +17,17 @@ from django.contrib import admin
 from django.urls import path, re_path
 from django.urls.conf import include
 
+from grupo2.admin import mi_admin,mi_grupo2
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # el nombre admin/ e la maera de llamar el acceso y se puede cambiar
+
+    #por defecto 
+    # path('admin/', admin.site.urls),
+
+    path('admin/', mi_admin.urls),
     path("",include("grupo2.urls")),
+    
+    #Se peuden tener 2 opciones de admin
+    path('grupo/', mi_grupo2.urls)
 ]

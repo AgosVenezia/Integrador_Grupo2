@@ -1,0 +1,22 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Nuevo Socio{% endblock%}
+
+{% block contenido %}
+<h1 class="mt-4">Nuevo Socio</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="{% url 'inicio_administracion' %}">Administración</a></li>
+    <li class="breadcrumb-item active">Nuevo Socio</li>
+</ol>
+
+
+<div class="card">
+    <div class="card-header">Creación de nuevo Socio</div>
+    <div class="card-body">
+        <form action="{% url 'socio_nuevo' %}" method="post">
+            {% csrf_token %}
+            {% include 'grupo2/administracion/socio/form.html' %}
+        </form>
+    </div>
+</div>
+{% endblock %}

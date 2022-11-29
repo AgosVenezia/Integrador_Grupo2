@@ -1,0 +1,22 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Nueva Cuota{% endblock%}
+
+{% block contenido %}
+<h1 class="mt-4">Cuotas</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="{% url 'inicio_administracion' %}">Administracion</a></li>
+    <li class="breadcrumb-item active">Nueva Cuota</li>
+</ol>
+
+
+<div class="card">
+    <div class="card-header">Registro de cuotas societarias</div>
+    <div class="card-body">
+        <form action="{% url 'cuota_nuevo' %}" method="post">
+            {% csrf_token %}
+            {% include 'grupo2/administracion/cuota/form.html' %}
+        </form>
+    </div>
+</div>
+{% endblock %}

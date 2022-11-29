@@ -1,6 +1,9 @@
 
 from django import forms
 from django.forms import ValidationError
+from grupo2.models import *
+
+
 
 def solo_caracteres(valor):
     if any(char.isdigit() for char in valor):
@@ -50,12 +53,78 @@ class ContactoForm(forms.Form):
         #    self.add_error('asunto',msg)
         #    self.add_error('mensaje',msg)
 
-#-- modificado 08/11
-class CategoriaForm(forms.Form):
 
-    nombre = forms.CharField(
-            label='Nombre', 
-            max_length=50,
-            validators=(solo_caracteres,),
-            widget=forms.TextInput(attrs={'class':'form-control'})
-        )   
+    
+
+#-- modificado 08/11
+#class CategoriaForm(forms.Form):
+
+#    nombre = forms.CharField(
+#            label='Nombre', 
+#            max_length=50,
+#            validators=(solo_caracteres,),
+#            widget=forms.TextInput(attrs={'class':'form-control'})
+   #     )   
+
+
+class CategoriaForm(forms.ModelForm):
+    
+    class Meta:
+        model=Categoria
+        fields ='__all__'
+    #    exclude = ('baja',)
+
+#  Ciudades de residencia de los SOCIOS
+class CiudadForm(forms.ModelForm):
+    
+    class Meta:
+        model=CiudadResidencia
+        fields ='__all__'
+        exclude = ('baja',)
+
+#  Comprobantes de pago
+class ComprobanteForm(forms.ModelForm):
+    
+    class Meta:
+        model=Comprobante
+        fields ='__all__'
+        exclude = ('baja',)
+
+
+
+#  CUOTAS  de los SOCIOS
+class CuotaForm(forms.ModelForm):
+    
+    class Meta:
+        model=Cuota
+        fields ='__all__'
+        exclude = ('baja',)
+
+#  Cursos del Club
+class CursoForm(forms.ModelForm):
+    
+    class Meta:
+        model=Curso
+        fields ='__all__'
+        exclude = ('baja',)
+
+
+
+
+#  inicio de socios
+class SocioForm(forms.ModelForm):
+    
+    class Meta:
+        model=Socio
+        fields ='__all__'
+        # fields = ['nombrecampo1','nombrede campo 2']
+        exclude = ('baja',)
+
+class RegistrarUsuarioForm(forms.ModelForm):
+    pass
+
+
+
+
+
+

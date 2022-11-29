@@ -1,0 +1,21 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Editar ciudad{% endblock%}
+
+{% block contenido %}
+<h1 class="mt-4">Comprobantes de Pago</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="{% url 'inicio_administracion' %}">Administracion</a></li>
+    <li class="breadcrumb-item active">Comprobantes</li>
+</ol>
+
+<div class="card">
+    <div class="card-header">Editar Comprobante</div>
+    <div class="card-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% include 'grupo2/administracion/comprobante/form.html' %}
+        </form>
+    </div>
+</div>
+{% endblock %}
