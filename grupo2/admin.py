@@ -51,7 +51,7 @@ class CiudadResedenciaAdmin(admin.ModelAdmin):
     list_display = ('ciudad','provincia','codigoPostal')
 #    list_editable = ('ciudad',)
     search_fields = ['ciudad','provincia']
-    list_filter = ('ciudad','provincia')
+    list_filter = ('ciudad','provincia','codigoPostal')
 
 mi_grupo2.register(Socio,SocioAdmin)
 mi_grupo2.register(CiudadResidencia,CiudadResedenciaAdmin)
