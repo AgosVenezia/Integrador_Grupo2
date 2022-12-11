@@ -55,15 +55,13 @@
             <tbody>
                 {% for categoria in categorias %}
                     <tr>
-                        <td>{{socio.id}}</td>
+                        <td>{{categoria.id}}</td>
                         <td>{{categoria.nombre}}</td>
-                        <td>{{categoria.apellido}}</td>
-                        <td>{{categoria.fechaNacimient}}</td>
-                        <td>{{categoria.telCelular}}</td>
-                        <td>
-                        <a href="{% url 'socio_editar' socio.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
                         
-                        <a href="{% url 'socio_eliminar' socio.id %}" title="Eliminar" class="btn btn-danger"><i class="fas fa-trash"></i></a> 
+                        <td>
+                        <a href="{% url 'categoria_editar' categoria.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
+                        
+                        <a href="{% url 'categoria_eliminar' categoria.id %}" title="Eliminar" class="btn btn-danger"><i class="fas fa-trash"></i></a> 
                         
                         </div>        
                         </td>

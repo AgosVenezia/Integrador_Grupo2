@@ -14,10 +14,16 @@ from django.contrib import messages # para responder los mensajes en pantalla
 #--modificado 08/11
 from grupo2.models import *
 from grupo2.forms import *
+
+#autenticacion
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
+
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+
+#para compartir los archivos estaticos
+from django.views.static import serve 
 
 def index(request):
     listado_entrenamientos=[]
@@ -92,11 +98,21 @@ def ver_actividades(request):
             'categoria':'Competencia',
             'imagen':"/static/img/deporte_musculacion.jpg"
         }]
-    return render(request,'grupo2/publica/actividades.html',{'cursos':listado_actividades})
+    return render(request,'grupo2/publica/actividades2.html',{'cursos':listado_actividades})
 
 def index_administracion(request):
     variable = 'test variable'
     return render(request, 'grupo2/administracion/index_administracion.html',{'variable':variable})
+
+# ---------------------------------------------------------------------------
+# ACTIVIDADES
+def ver_actividade2(request):
+    cursos = Curso.objects.filter(baja=False)
+     
+    return render(request,'grupo2/publica/actividades.html',{'cursos':cursos})
+
+
+
 
 # ----------------------------------------------------------------------------
 #  ***  ADMINITRACION   ***
@@ -450,6 +466,8 @@ def iniciosecion(request):
 
 
 # ----------------------------------------
+# AUTENTICACION
+
 # 29/11   - Usuarios
 @login_required(login_url=settings.LOGIN_URL)
 def index_administracion(request):
@@ -463,9 +481,11 @@ def grupo2_login(request):
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
+
+            #registra el usuario en la secion
             form = login(request, user)
             nxt = request.GET.get("next",None)
-            messages.success(request, f' Bienvenido/a {username} !!')
+            messages.success(request, f' Bienvenid@ {username} !!')
             if nxt is None:
                 return redirect('inicio')
             else:
@@ -475,3 +495,6 @@ def grupo2_login(request):
     form = AuthenticationForm()
     return render(request, 'grupo2/publica/login.html', {'form': form})
 
+
+
+#-------------------------------------------------------

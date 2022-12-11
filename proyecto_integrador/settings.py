@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lmp6l=2!-m@_ik09346e&l+g^9^n4c&mnx7zi03k2)3yerti76'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["lu8dcf.servehttp.com","localhost","192.168.2.109","127.0.0.1"]
 
@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'django.views.static.serve',
     'grupo2',
-    'django_extensions'
+    'api_grupo2',
+    'django_extensions',
+    # para poner el API
+    'rest_framework',
     #'mod_wsgi.server',
 
 ]
@@ -53,6 +57,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # comparte los archivos estaticos - img css js 
+    # https://stackoverflow.com/questions/5836674/why-does-debug-false-setting-make-my-django-static-files-access-fail
+    'whitenoise.middleware.WhiteNoiseMiddleware', #add whitenoise
+
 ]
 
 ROOT_URLCONF = 'proyecto_integrador.urls'
@@ -60,6 +69,7 @@ ROOT_URLCONF = 'proyecto_integrador.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # donde busca por defecto todos los urls 
         'DIRS': [BASE_DIR/ 'templates' ],
 
         'APP_DIRS': True,  # es para que busque todos los templates d e las aplicaciones instaladas
@@ -115,9 +125,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'es-Ar'
+LANGUAGE_CODE = 'es-AR'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 USE_I18N = True
 
@@ -140,7 +150,10 @@ STATICFILES_DIRS = [
 #esto se genera en producción y es la que deberemos 
 #crear y django ira a buscar ahi 
 #python manage.py collectstatic
-STATIC_ROOT = BASE_DIR / 'static_root'
+
+#antes
+#STATIC_ROOT = BASE_DIR / 'static_root'
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')  # especifica root statico
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

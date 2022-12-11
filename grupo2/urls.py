@@ -2,20 +2,26 @@ from django.urls import path, re_path, include
 from . import views
 from django.contrib.auth import views as auth_views
 
+
 # Achivos media
 from django.conf.urls.static import static
-from django.conf import settings
+from django.conf import settings,urls
+
+
 
 urlpatterns = [
     path('',views.index,name="inicio"),
     path('nuestroclub/',views.nuestro_club1,name='nuestro_club'),
-    path('actividades/',views.ver_actividades,name='actividades'),
+    path('actividades/',views.ver_actividade2,name='actividades'),
+    path('actividades2/',views.ver_actividades,name='actividades2'),
     path('horarios/',views.ver_horarios,name='horarios'),
     path('socios/',views.ver_socios,name='socios'),
     path('contacto/',views.ver_contacto,name='contacto'),
 
     path('administracion',views.index_administracion,name='inicio_administracion'),
 
+    
+    
 
 # Categorias de los entrenamientos
     # modificado 08/11
@@ -81,6 +87,7 @@ urlpatterns = [
 
     path('iniciosecion/',views.iniciosecion,name='inicio2'),
  ] + static(settings.MEDIA_URL,documento_root=settings.MEDIA_ROOT)
+
 
 
     

@@ -36,3 +36,9 @@ estadoCivil=(
     ('U','Union Civil'),
     ('V','Viudo')
 )
+
+ESTADOS = (
+    (1,'Inscripto'),
+    (2,'Entrenando'),
+    (3,'Finalizado'),
+)

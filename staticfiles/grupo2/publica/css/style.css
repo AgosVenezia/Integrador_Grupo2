@@ -1,0 +1,108 @@
+header{
+    top: 0;    
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+#navbarNavAltMarkup a:hover{
+    background-color: #FF1616;
+	color: #FFFFFF;
+    cursor: pointer;
+}
+
+.margen{
+    padding-top: 70px;    
+}
+
+.portada{ 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100% ;
+    text-align: center;
+}
+
+h1{
+    font-family: Bebas Neue;
+    text-align: center;
+    color: #6C757D;
+}
+
+.card{
+    height: 100%;
+    width: 100% ;
+}
+
+.logo{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%; 
+}
+
+.logo2{
+    height: 110px;
+    width: 110px;
+    border-radius: 50%; 
+}
+
+#imagen{
+    height: 200px;
+    width: 200px;
+}
+
+#boton{
+    background-color: #FF1616;
+    color: #ffffff;
+}
+
+#carousel{
+    height: 90%;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+}
+
+.banner-proyectos{
+    background-image: url('https://agenciadeaprendizaje.bue.edu.ar/wp-content/uploads/2021/04/Banner-Codo-scaled.jpg?id=20937');
+    background-size: cover;
+}
+
+#copy{
+    color: #FFFFFF;
+}
+
+#links{
+    color: #004AAD;
+    text-decoration: none;
+}
+
+#links:hover{
+    color: #FF1616;
+}
+
+p.legales {
+    margin: 12px 0 0 0;
+    font-family: 'OpenSans', Helvetica, sans-serif;
+    font-size: 12px;
+    color: #AAAAAA;
+    line-height: 1.5;
+}
+
+p.legales {
+    margin: 12px 0 0 0;
+    font-family: 'OpenSans', Helvetica, sans-serif;
+    font-size: 12px;
+    color: #AAAAAA;
+    line-height: 1.5;
+}
+
+ul.lista-institucional {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 64px;
+    list-style: none;
+}

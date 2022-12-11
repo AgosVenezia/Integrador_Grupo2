@@ -12,6 +12,10 @@ django-extensions==3.2.1
 Pillow==9.3.0
 mod_wsgi==4.9.4
 
+djangorestframework==3.14.0
+WhiteNoise==6.2.0
+
+
 
 
 

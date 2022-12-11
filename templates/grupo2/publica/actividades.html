@@ -8,7 +8,7 @@
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-bold h1-banner">CLUB CED <br> &#60; Codificando el Deporte /&#62;</h1>
-            <img id="imagen" src="/static/img/logoCED2.png" alt="">
+            <img id="imagen" src="/static/img/logoCED2.png" alt="logo">
             <p></p>
             <p class="lead text-banner">¡Tu entrenamiento hoy, TUS LOGROS MAÑANA!</p> 
         </div>
@@ -16,31 +16,51 @@
 </section>
 
 <section class="album py-5 bg-light">
-    <div class="container">
-    <!--Section heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Grupos de entrenamientos</h2>
-    <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5">Preparamos a los deportistas en el más alto rendimiento.</p>
+    <div class="container-fluid">
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Grupos de entrenamientos</h2>
+        <!--Section description-->
+        <p class="text-center w-responsive mx-auto mb-5">Preparamos a los deportistas en el más alto rendimiento.</p>
+    
+
+
             {% if cursos|length > 0 %}
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                <div class="row">
                     {% for curso in cursos %}
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <img src={{curso.imagen}} class="bd-placeholder-img card-img-top" width="100%"  alt={{curso.nombre}}  width="20%">
-                                
-                                <div class="card-body">
-                                    <h3>{{curso.nombre}}</h3>
-                                    <p class="card-text">{{curso.descripcion}}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <button id="boton" type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+                    
+                    
+                        
+
+                        <!-- Left to right-->
+                        
+                            
+                            <div class="col-xl-3 col-lg-2 col-md-2  col-sm-1 g-3">
+                            <!-- normal -->
+                                <div class="ih-item square effect11 left_to_right">
+                                    <a href="#">
+                                        <div class="img"><img src={{'/media/'}}{{curso.imagen}} class="bd-placeholder-img card-img-top" width="100%"  alt={{curso.nombre}}  width="20%"></div>
+                                        <div class="info">
+                                        <h3>{{curso.nombre}}</h3>
+                                        <p>{{curso.categoria}}</p>
+                                        <p>{{curso.descripcion}}</p>
                                         </div>
-                                        <small class="text-muted">{{curso.categoria}}</small>
-                                    </div>
+                                    </a>
                                 </div>
+
                             </div>
-                        </div>
+                            <!-- end normal -->
+   
+                            
+                        
+                        
+                            
+                            
+                    
+               
+                        
                     {% endfor %}
+                
+                </div>
                 </div>
             {% else %}
                 <div class="row justify-content-center">
