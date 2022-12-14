@@ -41,35 +41,28 @@
             <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'contacto' %}">Contacto</a>
 
             {% if perms.grupo2 %}
-            <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'socios' %}">Mi cuenta</a>
             <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'horarios' %}">Horarios</a>
+            <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'socios' %}">Mi cuenta</a>
             {% endif %}
 
+            <!-- Muestra el menu administrador cuando acceden los que tienen esos permisos-->
             {% if perms.auth.view_permission %}
               <a class="nav-item nav-link" style="color:#FFFFFF;" href="{% url 'inicio_administracion' %}">Administración</a>
                 
             {% endif %}
             </div>
         </ul>
-        {% comment %}<div class="col-md-3 text-end">
-          <a type="text" style="display: inline" class="btn btn-outline btn btn-light text-danger">Iniciar Sesión</a>
-          <a type="button" href="" class="btn btn-outline btn btn-dark" style="background-color:#FF1616;">Registrarse</a>
-        </div>{% endcomment %}
-        
-        {% comment %} listo Agos  HEBER: LOS BOTONES DE INICIAR Y REGISTRARSE LOGRÉ CENTRARLOS, 
-        PERO EL TEXTO DE BIENVENIDO ME ESTÁ COSTANDO. ABAJO COMENTADO ESTÁ TU CÓDIGO SIN MODIFICAR!!{% endcomment %}
         <div class="col-md-3 text-end">   
           {% if user.is_authenticated %}
                     {% comment %} <p>Bienvenido\a, {{ user.username }}.</p> {% endcomment %}
                     <p type="text" style="display: inline" class="btn btn-outline btn btn-light text-danger">Socio: {{ user.first_name }}.</p>
                     <a type="button" href="{% url 'logout' %}" class="btn btn-outline btn btn-dark" style="background-color:#FF1616;">Cerrar Sesión</a>
-                {% else %}
+                    
+                  {% else %}
                     <a type="button" href="{% url 'login' %}" class="btn btn-outline btn btn-dark text-danger" style="background-color:#FFFFFF;">Iniciar Sesión</a>
-                    <a type="button" href="" class="btn btn-outline btn btn-dark" style="background-color:#FF1616;">Registrarse</a>
+                    <a type="button" href="{% url 'registrarse' %}" class="btn btn-outline btn btn-dark" style="background-color:#FF1616;">Registrarse</a>
                 {% endif %}
         </div>
-          
-
         </div>
       </div>
     </nav>

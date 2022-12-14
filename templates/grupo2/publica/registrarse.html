@@ -1,0 +1,57 @@
+{% extends './base.html' %}
+{% block titulo %}Registrarse{% endblock titulo %}
+{% block contenido %}
+
+<section class="py-5 vh-100" >
+  <div class="container-fluid h-custom py-5">
+      <div class="py-5 row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-6 col-lg-5 col-xl-4">
+            <img src="https://i.ibb.co/jrQQNzs/Login.png" alt="Login" border="0" /></a>
+          </div>
+          
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <div class="col-md-12">
+              <h2> REGISTRO DE USUARIO </h2>
+              <br>
+                {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}" role="alert">
+                {{message}}
+              </div>
+                {% endfor %}
+            </div>
+            <form method="POST">
+              {% csrf_token %}
+                {% for campo in form %}
+                  <div class="form-group">
+                    <label for="">{{campo.label}}</label>
+                      <input 
+                        type="{{campo.field.widget.input_type}}" 
+                        name="{{campo.name}}" 
+                        id="{{campo.name}}"
+                        class="form-control"
+                        placeholder="Ingrese {{campo.name}}"
+                        value="{{ campo.value | default:'' }}"
+                          >
+                    </div>
+                  <div>{{campo.errors}}</div>
+                    {% endfor %}
+                      
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <div class="col-12">
+              <input type="submit" value="Registrarse" class="btn text-light" style="background-color:#004AAD">
+              <p class="small fw-bold mt-2 pt-1 mb-0">Si ya tenés una cuenta, <a href="{% url 'login' %}"
+                style="color:#FF1616">iniciá sesión</a>.</p>
+            </div>
+          </div>
+            {% comment %} <fieldset class="form-group">
+              {{ form }}
+            </fieldset> {% endcomment %}
+          </form>
+  </div>
+</section>
+<br>
+<br>
+<br>
+<br>
+          
+{% endblock contenido %}

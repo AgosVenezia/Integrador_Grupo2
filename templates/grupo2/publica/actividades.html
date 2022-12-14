@@ -7,10 +7,10 @@
 <section class="py-5 text-center banner">
     <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-bold h1-banner">CLUB CED <br> &#60; Codificando el Deporte /&#62;</h1>
+            <h1 class="h1-banner" style="color: black">CLUB CED <br> &#60; Codificando el Deporte /&#62;</h1>
             <img id="imagen" src="/static/img/logoCED2.png" alt="logo">
             <p></p>
-            <p class="lead text-banner">¡Tu entrenamiento hoy, TUS LOGROS MAÑANA!</p> 
+            <p class="lead text-banner" style="color:#004AAD">¡Tu entrenamiento hoy, TUS LOGROS MAÑANA!</p> 
         </div>
     </div>
 </section>
@@ -18,9 +18,10 @@
 <section class="album py-5 bg-light">
     <div class="container-fluid">
         <!--Section heading-->
-        <h2 class="h1-responsive font-weight-bold text-center my-4">Grupos de entrenamientos</h2>
+        <h1 style="color: black">GRUPOS DE ENTRENAMIENTOS</h1>
         <!--Section description-->
-        <p class="text-center w-responsive mx-auto mb-5">Preparamos a los deportistas en el más alto rendimiento.</p>
+        <br>
+        <p class="text-center w-responsive mx-auto mb-5" style="color:#004AAD">Preparamos a los deportistas en el más alto rendimiento.</p>
     
 
 
@@ -40,9 +41,10 @@
                                     <a href="#">
                                         <div class="img"><img src={{'/media/'}}{{curso.imagen}} class="bd-placeholder-img card-img-top" width="100%"  alt={{curso.nombre}}  width="20%"></div>
                                         <div class="info">
-                                        <h3>{{curso.nombre}}</h3>
-                                        <p>{{curso.categoria}}</p>
+                                        <h3>{{curso.nombre}} - {{curso.categoria}}</h3>
                                         <p>{{curso.descripcion}}</p>
+                                        <p>{{curso.dia}} - {{curso.turno}}</p>
+                                        
                                         </div>
                                     </a>
                                 </div>

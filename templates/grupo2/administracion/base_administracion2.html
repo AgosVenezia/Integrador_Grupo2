@@ -12,11 +12,13 @@
     <link href="{% static '/grupo2/administracion/libs/css/styles.css'%}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/714631fdeb.js" crossorigin="anonymous"></script>
-    <script src="{% url 'js-catlog' %}"></script>
+    <!--<script src="{% url 'js-catlog' %}"></script>-->
+
+
 </head>
 
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background-color:#004AAD">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="{% url 'inicio_administracion' %}">Club CED</a>
         <!-- Sidebar Toggle-->
@@ -107,7 +109,7 @@
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-                    <div class="small">Inicio de sesión como:</div>
+                    <div class="small">Inicio sesión como:</div>
                     Admin Admin
                 </div>
             </nav>

@@ -52,7 +52,7 @@ class Socio(models.Model):
     venciDistintiva=models.DateField(verbose_name='Vencimiento de la Distintiva',null=True)  # Vencimiento de la Distintiva
 
     web=models.CharField(max_length=100,verbose_name='web',null=True)
-    baja= models.BooleanField(default=0)
+    baja= models.BooleanField(default=1)
 
     # metodo str permite que sea los que se muestre como referencia en el admin
     def __str__(self):
@@ -75,7 +75,7 @@ class Comprobante (models.Model):
     fecha= models.DateField(null=True,verbose_name='Fecha MM/DD/AAAA') # fecha de pago
     montoComprobante=models.FloatField(default=0,verbose_name='Monto Total')  # monto total del comprobante
     observaciones=models.CharField(max_length=100,verbose_name='Observación',blank=True,null=True)  # opcional
-    baja= models.BooleanField(default=0)
+    baja= models.BooleanField(default=1)
     
     def __str__(self):
         return self.comprobante
@@ -98,7 +98,7 @@ class Cuota (models.Model):
     socio=models.ForeignKey(Socio, on_delete=models.CASCADE, null=True)  # referencia con tabla socio a quien corresponde la cuota
     comprobante=models.ForeignKey(Comprobante, on_delete=models.CASCADE,null=True)  # referencia con el comprobante donde se abono la cuota
     montoCuota=models.FloatField(max_length=6,default=0)  # monto de la cuota que se abono
-    baja= models.BooleanField(default=0)
+    baja= models.BooleanField(default=1)
     
     def __str__(self):
         return self.cuota
@@ -117,7 +117,7 @@ class Cuota (models.Model):
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100,verbose_name='Nombre')
-    baja= models.BooleanField(default=0)
+    baja= models.BooleanField(default=1)
     
     def __str__(self):
         return self.nombre
@@ -144,7 +144,9 @@ class Curso(models.Model):
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
     # socios una tabla intermedia
     #socios = models.ManyToManyField(Socio) # crea la tabla muchos a muchos
-    baja= models.BooleanField(default=0)
+    dia =models.CharField(verbose_name='Dias',max_length=1, choices=dias, default='1') 
+    turno = models.CharField(verbose_name='Turno',max_length=1, choices=turnos, default='1') 
+    baja= models.BooleanField(default=1)
     
     def __str__(self):
         return self.nombre

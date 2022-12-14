@@ -7,13 +7,15 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings,urls
 
+from django.views.i18n import JavaScriptCatalog
+
 
 
 urlpatterns = [
     path('',views.index,name="inicio"),
     path('nuestroclub/',views.nuestro_club1,name='nuestro_club'),
     path('actividades/',views.ver_actividade2,name='actividades'),
-    path('actividades2/',views.ver_actividades,name='actividades2'),
+    
     path('horarios/',views.ver_horarios,name='horarios'),
     path('socios/',views.ver_socios,name='socios'),
     path('contacto/',views.ver_contacto,name='contacto'),
@@ -77,7 +79,12 @@ urlpatterns = [
     path('account/login/',auth_views.LoginView.as_view(template_name='grupo2/publica/login.html')),
 		# path('account/logout/',
     #      auth_views.LogoutView.as_view(template_name='cac/publica/logout.html'), name='logout'),
-  	path('account/password_change/',auth_views.PasswordChangeView.as_view(success_url='/')),
+  	path('account/password_change/',auth_views.PasswordChangeView.as_view(success_url='/socios')),
+    #path('account/password_change/',auth_views.PasswordChangeDoneView.as_view(success_url='/')),
+    
+    # form de django para registro de cuentas de usuario
+    #path('config/password-change/done/', auth_views.PasswordChangeDoneView.as_view(template_name='grupo2/publica/cambio_contrasenia_aceptado.html')),
+    
     path('account/',include('django.contrib.auth.urls')),
 
 #Autenticacion
@@ -86,6 +93,9 @@ urlpatterns = [
          auth_views.LogoutView.as_view(template_name='grupo2/publica/index.html'), name='logout'),
 
     path('iniciosecion/',views.iniciosecion,name='inicio2'),
+
+    path('jsi18n',JavaScriptCatalog.as_view(), name='js-catlog'),
+
  ] + static(settings.MEDIA_URL,documento_root=settings.MEDIA_ROOT)
 
 

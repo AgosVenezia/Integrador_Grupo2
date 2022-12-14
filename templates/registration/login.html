@@ -1,23 +1,23 @@
 {% extends 'grupo2/publica/base.html' %}
-{% block titulo %}Login{% endblock titulo %}
+{% block titulo %}Inicio de Sesión{% endblock titulo %}
 
 
 {% block contenido %}
 
-<section class="py-5 vh-100">
+<section class="py-5 vh-100" background="/static/img/fondo.jpg">
     <div class="container-fluid h-custom py-5">
       <div class="py-5 row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-9 col-lg-6 col-xl-5">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          <img src="fondo.jpg"
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <div class="col-md-12">
-                {% for message in messages %}
+                <!--{% for message in messages %}
                     <div class="alert alert-{{ message.tags }}" role="alert">
                         {{message}}
                     </div>
-                {% endfor %}
+                {% endfor %} -->
             </div>
             <form method="POST" style="border-radius:1%;">
                 {% csrf_token %}

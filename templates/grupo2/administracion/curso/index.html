@@ -45,7 +45,8 @@
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Categoria</th>
-                    <th>Imagen</th>
+                    <th>Descripción</th>
+                    <th>Dictado</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,7 +55,8 @@
                         <td>{{curso.id}}</td>
                         <td>{{curso.nombre}}</td>
                         <td>{{curso.categoria}}</td>
-                        <td>{{curso.imagen}}</td>
+                        <td>{{curso.descripcion}}</td>
+                        <td>{{curso.dia}} - {{curso.turno}}</td>
                         <td>
                         <a href="{% url 'curso_editar' curso.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
                         

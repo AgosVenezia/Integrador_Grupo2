@@ -222,6 +222,7 @@ def ciudades_eliminar(request,id):
 # COMPROBANTES de pago de Socios
 
 def comprobantes_index(request):
+    #comprobantes = Comprobante.objects.filter(baja=False)
     comprobantes = Comprobante.objects.filter(baja=False)
 
     return render(request,'grupo2/administracion/comprobante/index.html',{'comprobantes':comprobantes})
@@ -314,7 +315,7 @@ def cuotas_eliminar(request,id):
 # CURSOS dictados por el CLUB
 
 def cursos_index(request):
-    cursos = Curso.objects.filter(baja=False)
+    cursos = Curso.objects.all()
      
     return render(request,'grupo2/administracion/curso/index.html',{'cursos':cursos})
 
@@ -323,7 +324,7 @@ def cursos_nuevo(request):
         formulario = CursoForm(request.POST)
         if formulario.is_valid():
             dic = formulario.cleaned_data
-            nueva= Curso( nombre=dic['nombre'],descripcion=dic['descripcion'],imagen=dic['imagen'],categoria=dic['categoria'],socios=dic['socios'])
+            nueva= Curso( nombre=dic['nombre'],descripcion=dic['descripcion'],imagen=dic['imagen'],categoria=dic['categoria'],dia=dic['dia'],turno=dic['turno'])
             
             nueva.save()
             return redirect('curso_index')
@@ -423,7 +424,7 @@ AUTENTICACION
 
 
 
-def cac_login(request):
+def grupo2_login(request):
     if request.method == 'POST':
         # AuthenticationForm_can_also_be_used__
         username = request.POST['username']
@@ -434,9 +435,9 @@ def cac_login(request):
             messages.success(request, f' Bienvenido/a {username} !!')
             return redirect('inicio')
         else:
-            messages.error(request, f'Cuenta o password incorrecto, realice el login correctamente')
+            messages.error(request, f'Cuenta o contraseña incorrecta, realice el login correctamente')
     form = AuthenticationForm()
-    return render(request, 'cac/publica/login.html', {'form': form, 'title': 'Log in'})
+    return render(request, 'grupo2/publica/login.html', {'form': form, 'title': 'Log in'})
 
 
 def grupo2_registrarse(request):
@@ -449,7 +450,7 @@ def grupo2_registrarse(request):
             return redirect('login')
     else:
         form = RegistrarUsuarioForm()
-    return render(request, 'cac/publica/registrarse.html', {'form': form})
+    return render(request, 'grupo2/publica/registrarse.html', {'form': form})
 
 
 def iniciosecion(request):
@@ -469,7 +470,7 @@ def iniciosecion(request):
 # AUTENTICACION
 
 # 29/11   - Usuarios
-@login_required(login_url=settings.LOGIN_URL)
+@login_required(login_url=settings.LOGIN_URL) # protege que solo este logueado para accdeder
 def index_administracion(request):
     variable = 'test variable'
     return render(request,'grupo2/administracion/index_administracion.html',{'variable':variable})
@@ -482,19 +483,29 @@ def grupo2_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
 
-            #registra el usuario en la secion
+            #registra el usuario en la sesion
             form = login(request, user)
             nxt = request.GET.get("next",None)
-            messages.success(request, f' Bienvenid@ {username} !!')
+            messages.success(request, f' Ultimo inicio fue de {username} !!')
             if nxt is None:
                 return redirect('inicio')
             else:
                 return redirect(nxt)
         else:
-            messages.error(request, f'Cuenta o password incorrecto, realice el login correctamente')
+            messages.error(request, f'Cuenta o password incorrecto, realice el inicio de sesión correctamente')
     form = AuthenticationForm()
     return render(request, 'grupo2/publica/login.html', {'form': form})
 
 
+# --------------------------------------------
+# cambio de contraseña
+
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.messages.views import SuccessMessageMixin
+
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+
+    form_class = CambiarContraseniaForm
+    template_name = 'cambiar_contrasenia.html'
 
 #-------------------------------------------------------

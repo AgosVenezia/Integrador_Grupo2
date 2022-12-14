@@ -13,9 +13,9 @@ from django.contrib.auth.models import User, Group
 
 
 class grupo2AdminSite(admin.AdminSite):
-    site_header = "Administración del CLUB"
+    site_header = "Administración de los Usuarios Al Sitema"
     site_title = 'Club CED'
-    index_title = 'Administración Principal'
+    index_title = 'Usuarios'
     empty_value_display = 'NO hay Datos '
 
 mi_admin = grupo2AdminSite(name='grupo2')
@@ -31,6 +31,15 @@ class grupo2UserSite(admin.AdminSite):
     empty_value_display = 'NO hay Datos '
 
 mi_grupo2 = grupo2UserSite(name='grupo')
+
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.messages.views import SuccessMessageMixin
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+
+    site_header = "Carga de información del CLUB"
+    site_title = 'Club CED'
+    index_title = 'Carga Principal'
+    empty_value_display = 'NO hay Datos '
 
 # ---------------------------------------------------------------------------
 
@@ -110,5 +119,10 @@ mi_grupo2.register(Comprobante,ComprobanteAdmin)
 mi_grupo2.register(Curso,CursoAdmin)
 # Register your models here.
 
+#=======================================
+# registro de Usuarios
+
 mi_grupo2.register(User,UserAdmin)
 mi_grupo2.register(Group,GroupAdmin)
+
+

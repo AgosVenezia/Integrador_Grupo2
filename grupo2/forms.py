@@ -2,6 +2,13 @@
 from django import forms
 from django.forms import ValidationError
 from grupo2.models import *
+from .choices import *
+
+# Ususarios del sistema
+from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
+from django.contrib.auth.models import User
+
+from django.contrib.admin.widgets import AdminDateWidget
 
 
 
@@ -86,8 +93,24 @@ class CiudadForm(forms.ModelForm):
 class ComprobanteForm(forms.ModelForm):
     
     class Meta:
-        model=Comprobante
-        fields ='__all__'
+        model=Comprobante 
+        
+        comprobante = forms.CharField(max_length=64)
+        fecha = forms.DateField(widget=AdminDateWidget)
+        montoComprobante = forms.FloatField
+        observaciones = forms.Textarea
+             
+
+        
+
+        widgets = {
+            'comprobante':forms.TextInput(attrs={'class':'form-control'}),
+            'fecha':forms.DateField(widget=AdminDateWidget()),       
+                
+            'montoComprobante':forms.NumberInput(attrs={'class':'form-control'}),
+            'observaciones':forms.Textarea(attrs={'class':'form-control'}),
+        }
+
         exclude = ('baja',)
 
 
@@ -106,6 +129,9 @@ class CursoForm(forms.ModelForm):
     class Meta:
         model=Curso
         fields ='__all__'
+        #widgets = {
+        #    'dia': forms.Select(choices=dias,attrs={'class':'form-control'})
+        #}
         exclude = ('baja',)
 
 
@@ -120,11 +146,21 @@ class SocioForm(forms.ModelForm):
         # fields = ['nombrecampo1','nombrede campo 2']
         exclude = ('baja',)
 
-class RegistrarUsuarioForm(forms.ModelForm):
-    pass
+
+#========================================
+#Usuarios
+
+class RegistrarUsuarioForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2', 'first_name' ,'email']
 
 
-
-
+class CambiarContraseniaForm(PasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["old_password"] = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control"}), required=False)
+        self.fields["new_password1"].widget = forms.PasswordInput(attrs={"class": "form-control"})
+        self.fields["new_password2"].widget = forms.PasswordInput(attrs={"class": "form-control"})   
 
 
