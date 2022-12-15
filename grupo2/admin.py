@@ -13,7 +13,7 @@ from django.contrib.auth.models import User, Group
 
 
 class grupo2AdminSite(admin.AdminSite):
-    site_header = "Administración de los Usuarios Al Sitema"
+    site_header = "Administración de los Usuarios al Sistema"
     site_title = 'Club CED'
     index_title = 'Usuarios'
     empty_value_display = 'NO hay Datos '
@@ -59,9 +59,7 @@ class SocioAdmin(admin.ModelAdmin):
     list_display = ('distintiva','nombre','apellido')
     search_fields = ['nombre','apellido','distintiva']
     list_filter = ('idCategoriaSocio','categoriaDistintiva','condicionDePago','ciudadResidencia')
-
-    
-
+ 
 class CiudadResedenciaAdmin(admin.ModelAdmin):
     list_display = ('ciudad','provincia','codigoPostal')
 #    list_editable = ('ciudad',)
@@ -73,6 +71,7 @@ class CuotaAdmin(admin.ModelAdmin):
 #    list_editable = ('ciudad',)
     search_fields = ['socio','cuota','comprobante']
     list_filter = ('socio','comprobante')
+    #autocomplete_fields: ['socio','comprobante']
 
 class ComprobanteAdmin(admin.ModelAdmin):
     list_display = ('fecha','comprobante','montoComprobante','observaciones')

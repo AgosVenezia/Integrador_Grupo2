@@ -163,8 +163,7 @@ class Curso(models.Model):
     class Meta():
         verbose_name_plural = 'Cursos'
       
-    
-    
+      
 
 # modelo abstracto
 
@@ -176,12 +175,6 @@ class Persona(models.Model):
         abstract=True
 
 
-
-
-
-
-
-
 class Inscripcion(models.Model):
     
     fecha_creacion = models.DateField(verbose_name='Fecha de creacion')
@@ -191,7 +184,6 @@ class Inscripcion(models.Model):
 
     def __str__(self):
         return self.id
-
 
 # esto que sigue no se esta utilizando solo esta como referencia de las clases
 

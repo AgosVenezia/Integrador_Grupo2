@@ -43,7 +43,7 @@ ESTADOS = (
     (3,'Finalizado'),
 )
 
-dias = (
+dias = [
     ('1','Lunes'),
     ('2','Martes'),
     ('3','Miercoles'),
@@ -54,9 +54,9 @@ dias = (
     ('8','Semanal'),
     ('9','Mensual'),
     ('0','Unica vez'),
-)
+]
 
-turnos = (
+turnos = [
     ('1','8 a 10Hs'),
     ('2','10 a 12Hs'),
     ('3','12 a 14Hs'),
@@ -67,4 +67,4 @@ turnos = (
     ('8','Turno Mañana'),
     ('9','Turno Tarde'),
     ('0','Diferido'),
-)
+]

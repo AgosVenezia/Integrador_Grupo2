@@ -15,8 +15,7 @@
     <div class="card-body">
         <form action="{% url 'comprobante_nuevo' %}" method="post">
             {% csrf_token %}
-            {% load static %} {{ form.media }} {{ form.as_p }}
-            <!--{% include 'grupo2/administracion/comprobante/form.html' %}-->
+            {% include 'grupo2/administracion/comprobante/form.html' %}
         </form>
     </div>
 </div>

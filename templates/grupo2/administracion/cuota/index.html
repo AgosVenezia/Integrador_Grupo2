@@ -42,7 +42,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    
                     <th>Cuota</th>
                     <th>Socio</th>
                     <th>Comprobante</th>
@@ -52,12 +52,13 @@
             <tbody>
                 {% for cuota in cuotas %}
                     <tr>
-                        <td>{{cuota.id}}</td>
+                        
+                        <td>{{cuota.cuota}}</td>
                         <td>{{cuota.socio}}</td>
                         <td>{{cuota.comprobante}}</td>
                         <td>{{cuota.montoCuota}}</td>
                         <td>
-                        <a href="{% url 'categorias_editar' cuota.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
+                        <a href="{% url 'cuota_editar' cuota.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
                         
                         <a href="{% url 'cuota_eliminar' cuota.id %}" title="Eliminar" class="btn btn-danger"><i class="fas fa-trash"></i></a> 
                         

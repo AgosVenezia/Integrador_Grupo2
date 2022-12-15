@@ -25,6 +25,9 @@ from django.conf import settings
 #para compartir los archivos estaticos
 from django.views.static import serve 
 
+# ver las views en clases
+from django.views.generic import CreateView
+
 def index(request):
     listado_entrenamientos=[]
     # si ingresa de post - 
@@ -107,8 +110,8 @@ def index_administracion(request):
 # ---------------------------------------------------------------------------
 # ACTIVIDADES
 def ver_actividade2(request):
-    cursos = Curso.objects.filter(baja=False)
-     
+    #cursos = Curso()
+    cursos = Curso.objects.filter(baja=False) 
     return render(request,'grupo2/publica/actividades.html',{'cursos':cursos})
 
 
@@ -270,6 +273,7 @@ def comprobantes_eliminar(request,id):
 
 def cuotas_index(request):
     cuotas = Cuota.objects.filter(baja=False)
+    #cuotas = CuotaForm(request.GET)
 
     return render(request,'grupo2/administracion/cuota/index.html',{'cuotas':cuotas})
 
@@ -316,7 +320,7 @@ def cuotas_eliminar(request,id):
 
 def cursos_index(request):
     cursos = Curso.objects.all()
-     
+    #cursos=CursoForm()
     return render(request,'grupo2/administracion/curso/index.html',{'cursos':cursos})
 
 def cursos_nuevo(request):
@@ -509,3 +513,9 @@ class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = 'cambiar_contrasenia.html'
 
 #-------------------------------------------------------
+
+class cursoView(CreateView):
+    model = Curso
+    template_name = 'grupo2/publica/actividades.html'
+    form_class = CursoForm
+    success_url = '-'

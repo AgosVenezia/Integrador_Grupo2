@@ -15,7 +15,8 @@ urlpatterns = [
     path('',views.index,name="inicio"),
     path('nuestroclub/',views.nuestro_club1,name='nuestro_club'),
     path('actividades/',views.ver_actividade2,name='actividades'),
-    
+    #path('actividades/',views.cursoView.as_view(),name='actividades'),
+
     path('horarios/',views.ver_horarios,name='horarios'),
     path('socios/',views.ver_socios,name='socios'),
     path('contacto/',views.ver_contacto,name='contacto'),

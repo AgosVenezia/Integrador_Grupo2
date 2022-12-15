@@ -12,6 +12,8 @@ from django.contrib.admin.widgets import AdminDateWidget
 
 
 
+
+
 def solo_caracteres(valor):
     if any(char.isdigit() for char in valor):
         raise ValidationError("EL nombre no debe contener numeros: %(valor)s",
@@ -94,12 +96,12 @@ class ComprobanteForm(forms.ModelForm):
     
     class Meta:
         model=Comprobante 
-        
-        #comprobante = forms.CharField(max_length=64)
-        #fecha = forms.DateField(widget=AdminDateWidget)
-        #montoComprobante = forms.FloatField
-        #observaciones = forms.Textarea
-             
+        fields = '__all__'
+        comprobante = forms.CharField(max_length=64),
+        fecha = forms.DateField(widget=AdminDateWidget),
+        montoComprobante = forms.FloatField,
+        observaciones = forms.Textarea,
+            
 
         
 
@@ -107,7 +109,7 @@ class ComprobanteForm(forms.ModelForm):
             'comprobante':forms.TextInput(attrs={'class':'form-control'}),
             'fecha':forms.DateField(widget=AdminDateWidget()),       
                 
-            'montoComprobante':forms.NumberInput(attrs={'class':'form-control'}),
+            'montoComprobante':forms.FloatField(),
             'observaciones':forms.Textarea(attrs={'class':'form-control'}),
         }
 
@@ -121,6 +123,10 @@ class CuotaForm(forms.ModelForm):
     class Meta:
         model=Cuota
         fields ='__all__'
+        #cuota=forms.TextInput()  # numero de cuota  año+mes ej: 202003
+       # socio=forms.ModelChoiceField(queryset=Socio.objects.distinct('distintiva'))  # referencia con tabla socio a quien corresponde la cuota
+       # comprobante=forms.ModelChoiceField(queryset=Comprobante.objects.distinct('comprobante'))
+       # montoCuota=forms.FloatField()  # monto de la cuota que se abono
         exclude = ('baja',)
 
     
@@ -130,11 +136,22 @@ class CursoForm(forms.ModelForm):
     
     class Meta:
         model=Curso
-        fields ='__all__'
-        #widgets = {
-        #    'dia': forms.Select(choices=dias,attrs={'class':'form-control'})
-        #}
-        exclude = ('baja',)
+        fields =['nombre','dia','turno']
+        
+        def __init__ (self, *args, **kwargs):
+            super().__init__( *args, **kwargs)
+
+            self.fields['nombre'].widget.attrs.update({
+                'class':'form-control',                
+                })
+
+            self.fields['dia'].widget.attrs.update({
+                'class':'form-control',                
+                })
+
+            
+
+
 
 
 
