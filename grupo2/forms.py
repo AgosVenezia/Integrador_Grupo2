@@ -95,10 +95,10 @@ class ComprobanteForm(forms.ModelForm):
     class Meta:
         model=Comprobante 
         
-        comprobante = forms.CharField(max_length=64)
-        fecha = forms.DateField(widget=AdminDateWidget)
-        montoComprobante = forms.FloatField
-        observaciones = forms.Textarea
+        #comprobante = forms.CharField(max_length=64)
+        #fecha = forms.DateField(widget=AdminDateWidget)
+        #montoComprobante = forms.FloatField
+        #observaciones = forms.Textarea
              
 
         
@@ -122,6 +122,8 @@ class CuotaForm(forms.ModelForm):
         model=Cuota
         fields ='__all__'
         exclude = ('baja',)
+
+    
 
 #  Cursos del Club
 class CursoForm(forms.ModelForm):
